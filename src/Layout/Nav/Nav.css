@@ -1,0 +1,35 @@
+.nav{
+   display: flex;
+   align-items: center;
+   height: 3rem; 
+   background-color: #2F3B47;
+   padding-inline: .8rem;
+   width: 100vw;
+}
+
+.nav .nav-ul{
+    color: white;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+}
+
+.nav ul li img{
+    aspect-ratio: 1;
+    width: 25px;
+    border-radius: 50%;
+}
+
+
+.nav ul li[class="nav-items"]:nth-child(3){
+    margin-left: auto;
+}
+
+@media screen and (min-width: 700px) {
+    .nav ul li[class="nav-items"]:nth-child(1){
+        display: none;
+        color: aqua;
+    }
+}

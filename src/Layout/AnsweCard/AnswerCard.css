@@ -1,0 +1,10 @@
+.answer-card{
+    margin-inline: .9rem;
+    padding-top: .9rem;
+}
+
+.answer-card .question-title{
+    padding-inline: .3rem;
+    padding-bottom: .4rem;
+    border-bottom: 1px solid #C5C5C5;
+}

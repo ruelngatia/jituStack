@@ -1,0 +1,33 @@
+.card{
+    background-color: #FAFAFA;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.card .inner-card{
+
+}
+
+.card .question-title{
+    color: #4886B1;
+    font-size: .1rem;
+}
+
+.card p{
+    font-size: .7rem;
+}
+
+.card :nth-child(5){
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media screen and (min-width: 700px) {
+    .card{
+        flex-direction: row;
+        gap: 2rem;
+    }
+}

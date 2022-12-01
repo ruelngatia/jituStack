@@ -1,0 +1,20 @@
+.comment{
+    margin-top: .3rem;
+    font-size: .7rem;
+    padding-bottom: .5rem;
+    padding-inline: 1rem;
+    border-bottom: 1px solid #C5C5C5;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+}
+
+.comment .comment-stamp{
+    font-size: .6rem;
+}
+
+.comment .comment-stamp span:nth-child(1){
+    color: #4886B1;
+    margin-right: .5rem;
+
+}

@@ -1,0 +1,27 @@
+.user{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user img{
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    
+}
+
+.user div{
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.user div .name{
+    font-size: .8rem;
+}
+
+.user div .time-asked{
+    font-size: .6rem;
+    
+}

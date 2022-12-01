@@ -1,0 +1,47 @@
+.login-form{
+    aspect-ratio: 1;
+    width: 17rem;
+    border-radius: 10px;
+    box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.397);    
+}
+
+.login-form form{
+    padding-block: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.login-form form div{
+    width: 11rem;
+    
+}
+
+.login-form form div input{
+    width: 100%;
+}
+
+.login-form form .signup{
+    font-size: .5rem;
+    text-align:  right;
+}
+
+.login-form form .signup{
+    margin-top: 5px;
+}
+
+.login-form form .signup span{
+    color: #26308E;
+}
+
+.login-form form button{
+    padding-block: 5px;
+    background-color: #4886B1;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+}
