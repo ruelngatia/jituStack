@@ -19,7 +19,7 @@ export default function DropMenu() {
         <li className='sub-list'>
             <ul>
                 <li>
-                    <Link className='link'>Questions</Link>
+                    <Link className='link' to={'/askquestion'}>Ask Questions</Link>
                 </li>
                 <li>
                     <Link className='link'>Tag</Link>

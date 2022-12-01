@@ -9,10 +9,11 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 
 function App() {
+
   return (
     <div className="App">
       <Nav/>
-      {window.location.pathname === '/'? <SubNav/>:<div/>}
+      {window.location.pathname === '/' || window.location.pathname === '' ? <SubNav/>:<div/>}
       <div className='contents'>
         <LeftTab/>
         <Routes>

@@ -1,0 +1,32 @@
+.ask-question{
+    Padding-inline: .5rem ;
+    padding-top: .3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.ask-question .input-div input{
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #C5C5C5;
+    padding-left: 3px;
+}
+
+.ask-question .input-div input:focus{
+    outline: solid 1px #afafafed;
+}
+
+.ask-question .input-div button{
+    margin-top: .8rem;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: #4886B1;
+    padding-inline:.5rem ;
+    padding-block:.1rem ;
+    font-weight: 600;
+    font-size: .9rem;
+}
