@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './LoginForm.css'
 
 export default function LoginForm() {
@@ -12,15 +13,15 @@ export default function LoginForm() {
                 <input type={'text'}/>
             </div>
             <div>
-                <label>User name</label>
+                <label>Password</label>
                 <br/>
-                <input type={'text'}/>
-                <div className='signup'>
-                    Don't have an account 
-                    <span> Sign up</span>
-                </div>
+                <input type={'password'}/>
             </div>
-           <div>
+            <div className='login-signup'>
+                    Don't have an account 
+                    <span><Link className='span-signup' to={'/signup'}>Sign up</Link></span>
+                </div>
+            <div>
                 <button>Login</button>
            </div>
         </form>

@@ -1,11 +1,14 @@
 .login-form{
-    aspect-ratio: 1;
     width: 17rem;
+    height: 17rem;
     border-radius: 10px;
-    box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.397);    
+    box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.397);   
+    
 }
 
 .login-form form{
+   
+    height: 100%;
     padding-block: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -21,24 +24,28 @@
 
 .login-form form div input{
     width: 100%;
+    height: 1.5rem;
+   
 }
 
-.login-form form .signup{
-    font-size: .5rem;
+.login-form form .login-signup{
+    font-size: .6rem;
     text-align:  right;
 }
 
-.login-form form .signup{
+.login-form form .login-signup{
     margin-top: 5px;
 }
 
-.login-form form .signup span{
+.login-form form .login-signup span .span-signup{
+    text-decoration: none;
+    font-weight: 500;
     color: #26308E;
 }
 
 .login-form form button{
     padding-block: 5px;
-    background-color: #4886B1;
+    background-color: #2F3B47;
     border: none;
     border-radius: 5px;
     color: white;

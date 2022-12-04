@@ -1,0 +1,33 @@
+.answer-p{
+    width: 100%;
+}
+
+.answer-p .inner{
+    
+    overflow: hidden;
+}
+
+.answer-p pre{
+    position: relative;
+    width: 95%;
+    border-radius: 8px;
+    margin: 20px auto;
+    display: flex;
+    align-items: flex-start;
+    background-color: dimgray;
+}
+
+code{
+    margin:15px 0 0 15px;
+    overflow: scroll;
+}
+
+
+
+code::before{
+    position: absolute;
+    content: 'code snippet';
+    top: -20px;
+    color: black;
+    
+}

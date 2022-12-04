@@ -1,3 +1,24 @@
 .answers{
-    
+    width: 82vw;
+}
+
+@media screen and (max-width:1000px) {
+    .answers{
+       width: 78vw;
+ 
+    }
+}
+
+@media screen and (max-width:760px) {
+    .answers{
+       width: 74vw;
+ 
+    }
+}
+
+@media screen and (max-width:700px) {
+    .answers{
+       width: 100vw;
+ 
+    }
 }

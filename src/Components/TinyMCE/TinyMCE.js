@@ -41,10 +41,7 @@ export default function TinyMCE() {
         />
         <button onClick={()=>{clickHalnder()}}>
             Done
-        </button>
-
-        {/* <div dangerouslySetInnerHTML={{__html:codeSnippet}} /> */}
-            
+        </button>      
         
     </div>
   )
