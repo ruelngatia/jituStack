@@ -7,8 +7,9 @@ export default function SubNav() {
         <ul>
             <li>Newest</li>
             <li>Featured</li>
-            <li>FrequentlyAsked</li>
+            <li>Frequently_Asked</li>
             <li>Unanswered</li>
+            <li>Mostly_Answered</li>
         </ul>
     </div>
   )

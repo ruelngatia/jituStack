@@ -20,7 +20,6 @@ export default function AnswerParagraph() {
   return (
     <div className='answer-p' >
        <div className='inner' dangerouslySetInnerHTML={{__html:snippet}}>
-
        </div>
        
     </div>
