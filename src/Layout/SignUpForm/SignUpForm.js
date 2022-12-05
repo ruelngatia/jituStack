@@ -21,11 +21,11 @@ export default function SignUpForm() {
             <br/>
             <input type={'password'}/>
         </div>
-        <div>
+        <div className='div-btn'>
             <button>SignUp</button>
         </div>
             <p>
-               Have an account <span><Link to={'/login'} className='span-link'>sign up</Link></span>
+               Have an account <span><Link to={'/login'} className='span-link'>Login</Link></span>
             </p>
     </div>
   )

@@ -19,11 +19,16 @@
     text-align: center;
 }
 
+.signup-form .div-btn{
+   width: 70%;
+}
+
 .signup-form button{
+    width: 100%;
     color: white;
     background-color: #2F3B47;
     border: none;
-    padding-block: .15rem;
+    padding-block: .2rem;
     padding-inline: .6rem;
     border-radius: 4px;
     font-weight: 600;
