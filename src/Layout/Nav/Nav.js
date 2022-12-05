@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Nav.css'
 import { MdMenu } from "react-icons/md";
-import { MdOutlineSearch } from "react-icons/md";
+import { MdOutlineSearch ,MdCancel} from "react-icons/md";
 import DropMenu from '../DropDownMenu/DropMenu';
 import LogoutMenu from '../../Components/LogoutMenu/LogoutMenu';
 
@@ -13,18 +13,21 @@ export default function Nav() {
  
   const[showDropMenu,setshowDropMenu] =useState({display:'none'})
   const[menuHidden,setmenuHidden] =useState(true)
+
+   const menuClickedhandler = () => {
+    sethidden(!hidden)
+    hidden?setshowMenu({display:''}):setshowMenu({display:'none'})
+  }
  
     
   return (
     <div className='nav'>
         <ul className='nav-ul'>
             <li className='nav-items'>
-                <MdMenu size={20}
-                    onClick={()=>{
-                        sethidden(!hidden)
-                        hidden?setshowMenu({display:''}):setshowMenu({display:'none'})
-                    }}
-                />
+                {hidden?<MdMenu size={24} onClick={menuClickedhandler}/>:<MdCancel size={24} color={'tomato'} onClick={menuClickedhandler}/>}
+            
+                
+                
             </li>
             <li className='nav-items'>Questions</li>
             <li className='nav-items'><input type={'text'} placeholder={'Search question'}/></li>

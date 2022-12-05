@@ -10,7 +10,7 @@ export default function AnswerCard() {
   return (
     <div className='answer-card'>
         <div className='question-title'>
-            <h3>PL/SQL MERGE INTO Compilation Errors</h3>
+            <h3>PL/SQL MERGE INTO Compilation Errors <span>Accepted</span> </h3>
         </div>
         <div>
             <AnswerParagraph/>
