@@ -21,7 +21,7 @@ export default function DropMenu() {
                 <li>
                     <Link className='link' to={'/askquestion'}>Ask Questions</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link className='link'>Tag</Link>
                 </li> 
                 <li>
@@ -29,7 +29,7 @@ export default function DropMenu() {
                 </li>
                 <li>
                     <Link className='link'>Companies</Link>
-                </li>        
+                </li>         */}
             </ul>
         </li>
         

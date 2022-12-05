@@ -24,10 +24,7 @@ export default function Nav() {
     <div className='nav'>
         <ul className='nav-ul'>
             <li className='nav-items'>
-                {hidden?<MdMenu size={24} onClick={menuClickedhandler}/>:<MdCancel size={24} color={'tomato'} onClick={menuClickedhandler}/>}
-            
-                
-                
+                {hidden?<MdMenu size={24} onClick={menuClickedhandler}/>:<MdCancel size={24} color={'tomato'} onClick={menuClickedhandler}/>} 
             </li>
             <li className='nav-items'>Questions</li>
             <li className='nav-items'><input type={'text'} placeholder={'Search question'}/></li>

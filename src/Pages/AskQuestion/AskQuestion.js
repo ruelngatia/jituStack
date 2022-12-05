@@ -4,20 +4,23 @@ import TinyMCE from'../../Components/TinyMCE/TinyMCE'
 
 export default function AskQuestion() {
   return (
-    <div className='ask-question'>
-        <div className='input-div'>
-            <div>
-                <label>Enter Question title</label>
-                <br/>
-                <input type={'text'}/>
+    <div className='container'>
+        <div className='ask-question'>
+            <div className='input-div'>
+                <div>
+                    <label>Enter Question title</label>
+                    <br/>
+                    <input type={'text'}/>
+                </div>
+                <button>
+                    Next
+                </button>
             </div>
-            <button>
-                Next
-            </button>
-        </div>
-        <div>
-            <TinyMCE/>
+            <div>
+                <TinyMCE/>
+            </div>
         </div>
     </div>
+
   )
 }

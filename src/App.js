@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import LeftTab from './Layout/LeftTab/LeftTab';
 import Nav from './Layout/Nav/Nav' 
+import RightTab from './Layout/RightTab/RightTab';
 import SubNav from './Layout/SubNav/SubNav';
 import Answers from './Pages/AnswersPage/Answers';
 import AskQuestion from './Pages/AskQuestion/AskQuestion';
@@ -11,15 +12,19 @@ import SignUp from './Pages/SignUp/SignUp';
 
 function App() {
 
+  
+
   return (
     <div className="App">
       <Nav/>
      
       {window.location.pathname === '/' || window.location.pathname === '' ? <SubNav/>:<div/>}
      
-      <div className='contents'>
+      <div className='contents' >
+        <div id='container1'>
         <LeftTab/>
-  
+        </div>
+        <div id='container2'>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
@@ -27,7 +32,10 @@ function App() {
             <Route path='/askquestion' element={<AskQuestion/>}/>
             <Route path='/signup' element={<SignUp/>}/>
           </Routes>
-        
+        </div>
+        <div id='container3'>
+          <RightTab/>
+        </div>
       </div>
 
     </div>

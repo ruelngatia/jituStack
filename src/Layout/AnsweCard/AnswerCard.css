@@ -6,11 +6,19 @@
 .answer-card .question-title{
     padding-inline: .3rem;
     padding-bottom: .4rem;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid #C5C5C5;
+}
+
+.answer-card .question-title h3{
+    font-size: 24px;
+    margin: 0 10px 0 0;
 }
 
 .answer-card .question-title span{
     font-size: .7rem;
+    font-weight: 700;
     padding: .1rem .3rem;
     color: green;
     border: 2px solid green;

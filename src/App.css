@@ -2,3 +2,29 @@
 .contents{
     display: flex;
 }
+
+#container1{
+    width: 20%;
+}
+#container2{
+    width: 60%;
+}
+#container3{
+    width: 20%;
+}
+
+@media screen and (max-width: 700px) {
+
+    #container1{
+        display: none; 
+     }
+
+    #container2{
+        width: 100%;
+    }
+
+    #container3{
+       display: none; 
+    }
+    
+}

@@ -1,4 +1,5 @@
 .sub-nav{
+    /* position: sticky top; */
     border-top: 1px solid #172C41; 
     background-color: #2F3B47;
     color: white;

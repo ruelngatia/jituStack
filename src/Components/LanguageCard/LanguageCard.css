@@ -1,7 +1,8 @@
 .language-card{
     background-color: #CFDDE8;
     font-size: .6rem;
-    padding: .1rem;
+    padding: .5rem;
+    margin: .5rem 0 0 0;
     border-radius: 2px;
     font-weight: 400;
 }
