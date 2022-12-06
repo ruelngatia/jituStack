@@ -1,7 +1,7 @@
 import React from 'react'
-import AnswererProfile from '../../Components/AnswererProfile/AnswererProfile'
 import Comment from '../../Components/Comment/Comment'
 import CommentInput from '../../Components/CommentInput/CommentInput'
+import Likes from '../../Components/Likes/Likes'
 import AnswerParagraph from '../AnswerParagraph/AnswerParagraph'
 import './AnswerCard.css'
 
@@ -15,7 +15,10 @@ export default function AnswerCard() {
         <div>
             <AnswerParagraph/>
         </div>
-        {/* <AnswererProfile/> */}
+        <div className='div-likes'>
+          <Likes/>
+        </div>
+        <br/>
         <p>Comments</p>
         <Comment/>
         <CommentInput/>

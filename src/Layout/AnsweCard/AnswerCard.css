@@ -16,6 +16,10 @@
     margin: 0 10px 0 0;
 }
 
+.answer-card .div-likes{
+    float: right;
+}
+
 .answer-card .question-title span{
     font-size: .7rem;
     font-weight: 700;

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Comment.css'
-import Likes from '../../Components/Likes/Likes'
+
 
 
 export default function Comment() {
@@ -13,7 +13,6 @@ export default function Comment() {
                 AND pg_stat_activity.pid <> pg_backend_pid();`}
             </p>
        </div>
-       <Likes/>
         <div className='comment-stamp'>
             <span>Michael shumaka</span>
             <span>2nd November</span>

@@ -1,12 +1,14 @@
 .comment-input input{
     width: 100%;
     border: none;
+    height: 2rem;
     padding-left: 3px;
 }
 
 .comment-input input:focus { 
     border-radius: none;
     outline: none;
+    border-bottom: 1px solid grey;
 }
 
 
@@ -14,12 +16,9 @@
     display: flex; 
 }
 
-/* .comment-input input:focus button{
-    background-color: blue;
-} */
-
 .comment-input .comment-button-div button{
     color: white;
+    font-size: .6rem;
     padding-inline: .2rem;
     padding-block: .1rem;
     font-weight: 600;
