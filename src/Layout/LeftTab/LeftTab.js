@@ -13,8 +13,6 @@ export default function LeftTab() {
             <li>
                 <ul>
                     <li><Link className='left-tab-link' to={'/askquestion'}> Ask Questions</Link></li>
-                    {/* <li><Link className='left-tab-link'>Tags</Link></li>
-                    <li><Link className='left-tab-link'>Users</Link></li> */}
                 </ul>
             </li>
         </ul>
