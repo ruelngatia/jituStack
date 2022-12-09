@@ -1,0 +1,55 @@
+###
+POST http://localhost:5050/users/adduser 
+Content-Type: application/json
+
+{
+    "username": "ruel",
+    "email": "ruel@email.com",
+    "password": "1234"
+}
+
+####
+POST http://localhost:5050/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "ruel",
+    "password": "1234"
+}
+
+###
+GET http://localhost:4040/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+###
+POST http://localhost:4040/addquestion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+{
+    "user_id": 1,
+    "question_title": "SQL MERGE statement to update data",
+    "question" : "<p>In <strong>SQL Server</strong>, it is possible to insert rows into a table with an <code>INSERT.. SELECT</code> statement:</p>"
+}
+
+
+###
+GET http://localhost:4040/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+
+###
+DELETE http://localhost:4040/deletequestion/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+
+###
+POST http://localhost:4040/addanswer
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+{
+    "question_id": 2,
+    "user_id": 1,
+    "answer" : "<p>In <strong>SQL Server</strong>, it is possible to insert rows into a table with an <code>INSERT.. SELECT</code> statement:</p>"
+}
