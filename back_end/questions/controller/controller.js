@@ -51,6 +51,58 @@ const addAnswer = async(req,res)=>{
 
 }
 
+const addLike = async(req,res)=>{
+    try {
+        await exec('addlike',req.body)
+        res.status(201).send({message: "like was added succefully"})
+    } catch (error) {
+        console.log(error);
+        res.status(401).send({message: "like was not added"})
+    }
+}
+
+const addDislike = async(req,res)=>{
+    try {
+        await exec('add_dislike',req.body)
+        res.status(201).send({message: "dislike was added succefully"})
+    } catch (error) {
+        console.log(error);
+        res.status(401).send({message: "dislike was not added"})
+    }
+}
+
+const searchQuestion = async(req,res)=>{
+    try {
+        let {question} = req.params
+        let results = await (await exec('search_question',{question: question})).recordset
+        res.status(201).send(results)
+    } catch (error) {
+        console.log(error);
+        res.status(401).send({message: "no such question was found"})
+    }
+}
+
+const addComment = async(req,res)=>{
+    try {
+        await exec('addComment',req.body)
+        res.status(201).send({message: "comment added"})
+    } catch (error) {
+        console.log(error);
+        res.status(401).send({message: "comment was not added"})
+    }
+}
+
+
+const getUserQuestion = async(req,res)=>{
+    try {
+        let {id} = req.params
+        let result = await (await exec('get_asked_question_by',{user_id: id})).recordset
+        res.status(201).send(result)
+    } catch (error) {
+        console.log(error);
+        res.status(401).send({message: "no questions asked"})
+    }
+}
 
 
 module.exports = {
@@ -58,5 +110,10 @@ module.exports = {
     addQuestion,
     getQuestion,
     deleteQuestion,
-    addAnswer
+    addAnswer,
+    addLike,
+    addDislike,
+    searchQuestion,
+    addComment,
+    getUserQuestion
 }

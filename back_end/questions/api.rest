@@ -32,17 +32,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
     "question" : "<p>In <strong>SQL Server</strong>, it is possible to insert rows into a table with an <code>INSERT.. SELECT</code> statement:</p>"
 }
 
-
+// get a specific question
 ###
 GET http://localhost:4040/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
 
-
+//delete a question
 ###
 DELETE http://localhost:4040/deletequestion/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
 
-
+// add an answer
 ###
 POST http://localhost:4040/addanswer
 Content-Type: application/json
@@ -53,3 +53,49 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
     "user_id": 1,
     "answer" : "<p>In <strong>SQL Server</strong>, it is possible to insert rows into a table with an <code>INSERT.. SELECT</code> statement:</p>"
 }
+
+
+// adding a like
+###
+POST http://localhost:4040/addlike
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+{
+    "user_id": 1,
+    "answer_id": 1
+}
+
+
+// adding a dislike
+###
+POST http://localhost:4040/adddislike
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+{
+    "user_id": 1,
+    "answer_id": 1
+}
+
+//search a question
+###
+GET http://localhost:4040/search/q 
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+
+###
+POST http://localhost:4040/addcomment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+{
+    "user_id": 1,
+    "answer_id": 1,
+    "comment": "this the most suitable answer found"
+}
+
+/// get user questions
+###
+GET http://localhost:4040/getmyquestion/1 
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
