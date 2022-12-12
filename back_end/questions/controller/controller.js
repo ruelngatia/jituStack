@@ -104,6 +104,16 @@ const getUserQuestion = async(req,res)=>{
     }
 }
 
+const mostlyAnsweredQuestion = async(req,res)=>{
+    try {
+        let result = await (await exec('frequently_answered_question')).recordset
+        res.status(200).send(result)
+    } catch (error) {
+        console.log(error);
+        res.status(401).send({message: "no mostly answered questions"}) 
+    }
+}
+
 
 module.exports = {
     getAllQuestions,
@@ -115,5 +125,6 @@ module.exports = {
     addDislike,
     searchQuestion,
     addComment,
-    getUserQuestion
+    getUserQuestion,
+    mostlyAnsweredQuestion
 }
