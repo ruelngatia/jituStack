@@ -11,7 +11,8 @@ const {
     searchQuestion,
     addComment,
     getUserQuestion,
-    mostlyAnsweredQuestion
+    mostlyAnsweredQuestion,
+    preferedAnswer
 } = require('../controller/controller')
 const {verifyToken} = require('../middleware/middleware')
 
@@ -26,6 +27,7 @@ questionRouter.post('/adddislike',verifyToken,addDislike)
 questionRouter.get('/search/:question',verifyToken,searchQuestion)
 questionRouter.post('/addcomment',verifyToken,addComment)
 questionRouter.get('/getmyquestion/:id',verifyToken,getUserQuestion)
+questionRouter.patch('/setPreferedanswer',verifyToken,preferedAnswer)
 
 
 module.exports = {

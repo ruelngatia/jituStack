@@ -114,6 +114,14 @@ const mostlyAnsweredQuestion = async(req,res)=>{
     }
 }
 
+const preferedAnswer = async(req,res)=>{
+    try{
+        await exec('set_prefered_answer',req.body)
+        res.status(200).send({message: "prefered answer"})
+    }catch(error){
+        res.status(401).send({message: 'preffered answer was not set'})
+    }
+}
 
 module.exports = {
     getAllQuestions,
@@ -126,5 +134,6 @@ module.exports = {
     searchQuestion,
     addComment,
     getUserQuestion,
-    mostlyAnsweredQuestion
+    mostlyAnsweredQuestion,
+    preferedAnswer
 }

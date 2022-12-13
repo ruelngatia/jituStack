@@ -103,3 +103,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
 ###
 GET http://localhost:4040/mostlyanswered 
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+
+###
+PATCH  http://localhost:4040/setPreferedanswer
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+
+{
+    "answer_id": 1
+}
