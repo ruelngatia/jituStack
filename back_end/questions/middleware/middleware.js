@@ -9,7 +9,8 @@ const verifyToken = async(req,res,next)=>{
     token = token?.split(' ')[1]
     jwt.verify(token,process.env.SECRET,(err,content)=>{
         if(err) return res.status(401).send({message:'jwt error'})
-        console.log(content);
+        req.body.user_id = content
+        console.log(req);
         next()
     })
    

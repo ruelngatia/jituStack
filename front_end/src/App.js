@@ -9,10 +9,12 @@ import AskQuestion from './Pages/AskQuestion/AskQuestion';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-  
+
 
   return (
     <div className="App">
@@ -37,7 +39,7 @@ function App() {
           <RightTab/>
         </div>
       </div>
-
+      <ToastContainer/>
     </div>
   );
 }
