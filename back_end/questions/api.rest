@@ -62,7 +62,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "answer_id": 2
+    "answer_id": 1
 }
 
 
@@ -73,7 +73,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "answer_id": 2
+    "answer_id": 1
 }
 
 //search a question

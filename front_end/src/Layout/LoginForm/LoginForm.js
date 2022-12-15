@@ -13,8 +13,11 @@ export default function LoginForm() {
     const navigator = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [userError, setuserError] = useState(false)
+    const [PassError, setPassError] = useState(false)
+
     const dispatch = useDispatch()
-    const notify = () => toast.error("incorrect username or password",{
+    const notify = () => toast.error("wrong user or password",{
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -26,6 +29,16 @@ export default function LoginForm() {
     });  
 
     const getUser = (userName,password)=>{
+        if (userName === '' ){
+            setuserError(true)
+            return
+        }else if(password === ''){
+            setPassError(true)
+            return
+        }
+
+
+
        axios.post('http://localhost:5050/users/login',
             {
                 "username": userName,
@@ -34,6 +47,7 @@ export default function LoginForm() {
        ).then((result)=>{
             const user = result.data
             dispatch(setCurrentUser(user))
+            localStorage.setItem('token',user.token)
             navigator('/')
        }).catch((err)=>{
             notify()
@@ -53,6 +67,7 @@ export default function LoginForm() {
                     type={'text'}
                     value={username} 
                     onChange={(e)=>{setUsername(e.target.value)}}
+                    className = {userError?'error': ''}
                 />
             </div>
             <div>
@@ -62,6 +77,7 @@ export default function LoginForm() {
                     type={'password'}
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}
+                    className = {PassError ?'error': ''}
                 />
             </div>
             <div className='login-signup'>

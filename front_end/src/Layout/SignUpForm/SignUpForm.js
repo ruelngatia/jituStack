@@ -13,6 +13,11 @@ export default function SignUpForm() {
     const navigator = useNavigate()
     
     const signup = (username,email,password)=>{
+
+
+        if(username === '' || email === '' || password === '' ){
+            return
+        }
        
         axios.post('http://localhost:5050/users/adduser ',{
             "username": username,
@@ -51,9 +56,9 @@ export default function SignUpForm() {
     <div className='signup-form'>
         <h3>SignUp</h3>
         <div>
-            <label>User name</label>
+            <label>Username</label>
             <br/>
-            <input type={'text'} value={username} onChange={(e)=>{setusername(e.target.value)}}/>
+            <input type={'text'} value={username} onChange={(e)=>{setusername(e.target.value); console.log(username);}}/>
         </div>
         <div>
             <label>Email</label>
@@ -66,7 +71,7 @@ export default function SignUpForm() {
             <input type={'password'} value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
         </div>
         <div className='div-btn'>
-            <button onClick={()=> signup()}>
+            <button onClick={()=> signup(username,email,password)}>
                 SignUp
             </button>
         </div>
