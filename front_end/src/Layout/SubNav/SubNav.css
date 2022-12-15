@@ -1,5 +1,4 @@
 .sub-nav{
-    /* position: sticky top; */
     border-top: 1px solid #172C41; 
     background-color: #2F3B47;
     color: white;
@@ -17,13 +16,20 @@
 }
 
 .sub-nav ul li{
-    padding-inline: .4rem;
     padding-bottom: .2rem;
 }
 
-.sub-nav ul li:nth-child(1){
+.sub-nav ul li .sub-nav-link{
+    color: white;
+    text-decoration: none;
+    padding-inline: 4px;
+}
+
+
+.active{
     border-bottom: 2px solid orange;
 }
+
 
 .sub-nav ul::-webkit-scrollbar{
     display: none;

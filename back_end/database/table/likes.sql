@@ -7,3 +7,4 @@ create table
 
 alter table likes add liking bit
 alter table likes add dislikes bit 
+alter table likes drop column dislikes
