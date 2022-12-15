@@ -16,9 +16,10 @@ const config = {
 
 export const getAllQuestions = createAsyncThunk(
     'getAllQuestions',
-    async () =>{
+    async (path,thunkAPI) =>{
+        console.log(path);
         try {
-            let result = await (await axios.get("http://localhost:4040/",config)).data 
+            let result = await (await axios.get(`http://localhost:4040${path}`,config)).data 
             return result
         } catch (error) {
             console.log(error);
