@@ -5,28 +5,32 @@ import User from '../../Components/User/User'
 import LanguageList from '../LanguageList/LanguageList'
 import './Card.css'
 
-export default function Card() {
+export default function Card(props) {
 
   const navigator = useNavigate()
+  let question = props.question
+  const details = {
+    likes: 1,
+    answers: question.answerCount,
+    views: question.viewCount
+  }
+  const user = {
+    username: question.username,
+    image_url : question.profile_image,
+    asked: Date(question.date_asked)
+  }
 
   return (
     <div className='card'>
         <div className='inner-card'>
-            <User/>
+            <User userProfile={user}/>
             <span className='question-title' onClick={()=>navigator('/answers')}>
-                How plave div in the middle css only
+                {question.question_title}
             </span>
-            <p>
-                I need help to prepare a server which can
-                deliver below possible use cases in a 5G Lab.
-                Visualization – 
-                Accelerators enhance performance for 3D 
-                visualization applications such as computer-aided design,
-                enabling software to draw models in real time as the user moves ......
-            </p>
+            <p dangerouslySetInnerHTML={{__html:question.question}}/>
             <LanguageList/>
         </div>
-        <QuestionDetails/>
+        <QuestionDetails details={details}/>
     </div>
   )
 }
