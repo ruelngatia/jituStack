@@ -3,8 +3,8 @@ POST http://localhost:5050/users/adduser
 Content-Type: application/json
 
 {
-    "username": "ruel",
-    "email": "ruel@email.com",
+    "username": "mark",
+    "email": "mark@email.com",
     "password": "1234"
 }
 
@@ -13,23 +13,24 @@ POST http://localhost:5050/users/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "ruel",
+    "username": "mark",
     "password": "1234"
 }
 
+// get all question
 ###
 GET http://localhost:4040/
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
+// add a question
 ###
 POST http://localhost:4040/addquestion
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "user_id": 1,
-    "question_title": "SQL MERGE statement to update data",
-    "question" : "<p>In <strong>SQL Server</strong>, it is possible to insert rows into a table with an <code>INSERT.. SELECT</code> statement:</p>"
+    "question_title": "SQL select",
+    "question" : "<p>SELECT</code> statement:</p>"
 }
 
 // get a specific question
@@ -39,18 +40,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
 
 //delete a question
 ###
-DELETE http://localhost:4040/deletequestion/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+DELETE http://localhost:4040/deletequestion/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 // add an answer
 ###
 POST http://localhost:4040/addanswer
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
     "question_id": 2,
-    "user_id": 1,
     "answer" : "<p>In <strong>SQL Server</strong>, it is possible to insert rows into a table with an <code>INSERT.. SELECT</code> statement:</p>"
 }
 
@@ -59,10 +59,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
 ###
 POST http://localhost:4040/addlike
 Content-Type: application/json 
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "user_id": 1,
     "answer_id": 1
 }
 
@@ -71,10 +70,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
 ###
 POST http://localhost:4040/adddislike
 Content-Type: application/json 
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "user_id": 1,
     "answer_id": 1
 }
 
@@ -83,33 +81,39 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2
 GET http://localhost:4040/sq 
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
 
-
+/// add a comment
 ###
 POST http://localhost:4040/addcomment
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "user_id": 1,
-    "answer_id": 1,
+    "answer_id": 2,
     "comment": "this the most suitable answer found"
 }
 
 /// get user questions
 ###
-GET http://localhost:4040/getmyquestion/1 
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+GET http://localhost:4040/getmyquestion/2 
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
+///get mostly answered question
 ###
 GET http://localhost:4040/mostlyanswered 
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 
+/// set prefered answer
 ###
 PATCH  http://localhost:4040/setPreferedanswer
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 {
-    "answer_id": 1
+    "answer_id": 2
 }
+
+###
+/// get answers for a given question
+GET http://localhost:4040/answers/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc

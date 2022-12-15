@@ -1,7 +1,7 @@
 .login-form{
     margin-top: 10rem;
-    width: 17rem;
-    height: 17rem;
+    width: 20rem;
+    height: 18rem;
     border-radius: 10px;
     box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.397);   
     
@@ -26,6 +26,7 @@
 .login-form form div input{
     width: 100%;
     height: 1.5rem;
+    padding-left: 3px;
    
 }
 
@@ -52,4 +53,10 @@
     color: white;
     font-weight: 700;
     width: 100%;
+}
+
+.error{
+    border: 1px solid red;
+    border-radius: 2px;
+
 }
