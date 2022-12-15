@@ -20,6 +20,7 @@ export const getAllQuestions = createAsyncThunk(
         console.log(path);
         try {
             let result = await (await axios.get(`http://localhost:4040${path}`,config)).data 
+            // let result = await (await axios.get(`http://localhost:4040/search/sq`,config)).data 
             return result
         } catch (error) {
             console.log(error);

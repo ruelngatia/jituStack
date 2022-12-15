@@ -76,9 +76,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUD
     "answer_id": 1
 }
 
-//search a question
+//search a question 1
 ###
-GET http://localhost:4040/search/kkk 
+GET http://localhost:4040/search/sq 
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
 
 /// add a comment
