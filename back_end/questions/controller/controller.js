@@ -83,7 +83,7 @@ const searchQuestion = async(req,res)=>{
     try {
         let {question} = req.params
         let results = await (await exec('search_question',{question: question})).recordset
-        if(results.length == 0) return res.status(401).send({message: "no such question was found"})
+        if(results.length == 0) return res.status(404).send({message: "no such question was found"})
         res.status(201).send(results)
     } catch (error) {
         console.log(error);
@@ -124,6 +124,8 @@ const mostlyAnsweredQuestion = async(req,res)=>{
     }
 }
 
+
+
 const preferedAnswer = async(req,res)=>{
     try{
         let returnedValue = await (await exec('set_prefered_answer',req.body)).returnValue
@@ -145,6 +147,44 @@ const getAnswersForQuestion = async(req,res)=>{
     }
 }
 
+const tabController = async(req,res)=>{
+    try {
+        let {tab} = req.query
+        let result;
+
+        switch (tab) {
+            case 'mostlyanswered':
+                result = await (await exec('frequently_answered_question')).recordset
+                if(result.length < 1) return res.status(404).send({message:{message: 'empty frequent results'}})
+                res.status(200).send(result)
+            break;
+            case 'myquestions':
+                let {id} = req.params
+                result = await (await exec('get_asked_question_by',{user_id: id})).recordset
+                if(result.length < 1) return res.status(404).send({message:{message: 'empty frequent results'}})
+                res.status(200).send(result)
+            break;
+            case 'newest':
+                result = await(await (exec('getNewesQuestion'))).recordset
+                if(result.length < 1) return res.status(404).send({message:{message: 'empty frequent results'}})
+                res.status(200).send(result)
+            break;
+            case 'featured':
+                result = await (await exec('get_featured_questions',req.body)).recordset
+                if(result.length < 1) return res.status(404).send({message:{message: 'empty frequent results'}})
+                res.status(200).send(result)
+            break;
+        
+            default:
+                break;
+        }
+
+        res.status(200).send([])
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getAllQuestions,
     addQuestion,
@@ -158,5 +198,6 @@ module.exports = {
     getUserQuestion,
     mostlyAnsweredQuestion,
     preferedAnswer,
-    getAnswersForQuestion
+    getAnswersForQuestion,
+    tabController
 }

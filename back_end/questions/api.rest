@@ -117,3 +117,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUD
 /// get answers for a given question
 GET http://localhost:4040/answers/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
+
+/// tab selections
+###
+GET http://localhost:4040/tab/?tab=newest
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
+
+###
+GET http://localhost:4040/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
