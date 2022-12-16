@@ -16,14 +16,15 @@ function App() {
 
   const currentLocation = useLocation()
   
-
+  console.log('from home: ' + currentLocation.pathname);
 
   return (
     <div className="App">
 
       <Nav/>
-      {currentLocation.pathname === '/' || currentLocation.pathname === '' ? <SubNav/>:<div/>}
+      {currentLocation.pathname === '/' || currentLocation.pathname === '' || currentLocation.pathname === '/tab/' ? <SubNav/>:<div/>}
      
+
       <div className='contents' >
         <div id='container1'>
         <LeftTab/>

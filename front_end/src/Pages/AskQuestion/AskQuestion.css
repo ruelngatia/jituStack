@@ -12,7 +12,6 @@
 }
 
 .input-div{
-    /* border: 1px solid red; */
     margin: 1rem 0;
     display: flex;
 }
@@ -30,6 +29,38 @@
     border: 1px solid #C5C5C5;
     padding-left: 3px;
 }
+
+.container .ask-question .tags{
+    margin-block: 5rem;
+
+}
+
+.container .ask-question .tags .tagInput{
+    height: 2rem;
+}
+
+.container .ask-question .tags span{
+   background-color: #d1cece;
+   padding: 2px 5px;
+   border-radius: 2px;
+   font-size: .8rem;
+   font-weight: 500;
+   margin-right: 5px;
+}
+.container .ask-question .tags span button{
+    margin-left: .3rem;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    font-size: .9999rem;
+    cursor: pointer;
+    color: tomato;
+}
+
+.container .ask-question .tags span button:hover{
+    color: red;
+}
+
 
 @media screen and (max-width: 390px) {
     .ask-question .input-div input{

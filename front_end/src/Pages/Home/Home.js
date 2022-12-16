@@ -21,9 +21,9 @@ export default function Home() {
 
       let path = ''
       if(p.search !== ''){
-        path = '/' + p.search
+        path = p.pathname + p.search
       }else{
-        path = p.pathname
+        path =  p.pathname
       }
 
       dispatch(getAllQuestions(path))
@@ -36,8 +36,7 @@ export default function Home() {
        {
         questions.loading ? <div>loading</div> :  questions.questions.map(element => <Card key={Math.random()} question ={element}/>)
        }
-      
-        
+             
     </div>
   )
 }
