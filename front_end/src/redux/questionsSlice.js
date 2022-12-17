@@ -4,7 +4,8 @@ import axios from 'axios'
 
 const initialState = {
         questions:[],
-        loading: true
+        loading: true,
+        error: ''
 }
 
 const config = {
@@ -22,6 +23,8 @@ export const getAllQuestions = createAsyncThunk(
             let result = await (await axios.get(`http://localhost:4040${path}`,config)).data 
             return result
         } catch (error) {
+            thunkAPI.dispatch(setError())
+            thunkAPI.dispatch(setLoading())
             console.log(error);
         }
         
@@ -34,7 +37,12 @@ export const questionsSlice = createSlice({
     name: 'questions',
     initialState: initialState,
     reducers: {
-
+        setError: (state)=>{
+            state.error = '404'
+        },
+        setLoading: (state)=>{
+            state.loading = !state.loading 
+        }
     },
     extraReducers: (builder)=>{
         builder.addCase(getAllQuestions.fulfilled, (state,action)=>{
@@ -47,4 +55,4 @@ export const questionsSlice = createSlice({
 
 
 export default questionsSlice.reducer;
-// export const {} = questionsSlice.actions
+export const {setError,setLoading} = questionsSlice.actions

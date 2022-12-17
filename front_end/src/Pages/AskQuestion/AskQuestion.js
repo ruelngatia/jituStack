@@ -39,7 +39,14 @@ export default function AskQuestion() {
                 <ReactTags
                     classNames={
                         {
-                            tagInput: 'tagInput'
+                            tags: 'tags',
+                            tagInput: 'input-tag',
+                            tagInputField: 'input-field',
+                            selected: 'selected',
+                            tag: 'tag',
+                            remove: 'remove',
+                            suggestions: 'sugestions',
+                            activeSuggestion: 'active-suggestion'
                         }
                     }
                     tags={tags}

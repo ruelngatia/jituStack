@@ -8,7 +8,7 @@ import Card from '../../Layout/Card/Card'
 export default function Home() {
 
   const dispatch = useDispatch()
-  let questions = useSelector((state)=> state.questions)
+  let questionState = useSelector((state)=> state.questions)
   
  
  
@@ -30,11 +30,21 @@ export default function Home() {
     },[p]
   )
 
+  const displayHandler = ()=>{
+    if(questionState.loading){
+      return <div>loading</div> 
+    }else if(questionState.error == '404'){
+      console.log('some error was found:   ');
+    }
+  }
+
+  
+
   return (
     <div className='home'>
 
        {
-        questions.loading ? <div>loading</div> :  questions.questions.map(element => <Card key={Math.random()} question ={element}/>)
+        questionState.loading ? <div>loading</div> :  questionState.questions?.map(element => <Card key={Math.random()} question ={element}/>)
        }
              
     </div>
