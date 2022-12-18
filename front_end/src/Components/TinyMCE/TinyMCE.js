@@ -2,19 +2,20 @@ import React, { useRef, useState } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 import './TinyMCE.css'
 
-export default function TinyMCE() {
+export default function TinyMCE(props) {
 
     const editorRef = useRef(null)
     const [codeSnippet,setCodeSnippet] = useState('')
 
     const clickHalnder = ()=>{
         setCodeSnippet(editorRef.current.getContent())
-        console.log(codeSnippet)
+        props.input(codeSnippet)
     }
 
   return (
     <div className='TinyMCE'>
         <Editor
+            onChange = {(e)=>setCodeSnippet(editorRef.current.getContent())}
             onInit={(evt,editor)=>{editorRef.current = editor}}
             init={{
                 height: 500,
@@ -40,7 +41,7 @@ export default function TinyMCE() {
               }}
         />
         <button onClick={()=>{clickHalnder()}}>
-            Done
+            Complete
         </button>      
         
     </div>

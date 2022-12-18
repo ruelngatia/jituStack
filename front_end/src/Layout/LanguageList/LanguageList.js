@@ -5,8 +5,7 @@ import './LanguageList.css'
 export default function LanguageList() {
   return (
     <div className='language-list'>
-        <LanguageCard/>
-        <LanguageCard/>
+        {/* <LanguageCard/> */}
     </div>
   )
 }

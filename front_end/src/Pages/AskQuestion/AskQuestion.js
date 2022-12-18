@@ -1,23 +1,49 @@
-import React from 'react'
+import {React,useState} from 'react'
 import './AskQuestion.css'
 import TinyMCE from'../../Components/TinyMCE/TinyMCE'
-import { WithContext as ReactTags } from 'react-tag-input';
+import axios from 'axios'
+
 
 export default function AskQuestion() {
 
-    const [tags, setTags] = React.useState([
-        { id: 'Thailand', text: 'Thailand' },
-        { id: 'India', text: 'India' },
-        { id: 'Vietnam', text: 'Vietnam' }
-      ]);
+    const [title, setTitle] = useState('')
 
-    const KeyCodes = {
-        comma: 188,
-        enter: 13
-      };
-      
-    const delimiters = [KeyCodes.comma, KeyCodes.enter];
+    let questionObj = {
+        question_title: '',
+        question: ''
+    }
 
+    const inputHandler = (ques)=>{
+        questionObj.question = ques
+        questionObj.question_title = title 
+
+        console.log(title);
+        console.log(ques);
+        
+
+        if(questionObj.question == '' || questionObj.question_title == ''){
+            return console.log(' did not continue');
+        }
+        postQuestion()
+
+    }
+
+    const config = {
+        headers:{
+          Authorization: "Bearer ".concat(localStorage.getItem('token'))
+        }
+      }
+
+    const postQuestion = async()=>{
+        
+        axios.post('http://localhost:4040/addquestion',questionObj,config)
+        .then((res)=>{
+            console.log('done');
+        })
+        .catch((error)=>{
+            console.log('failed');
+        })
+    }
 
   return (
     <div className='container'>
@@ -26,36 +52,11 @@ export default function AskQuestion() {
                 <div>
                     <label>Enter Question title</label>
                     <br/>
-                    <input type={'text'}/>
+                    <input placeholder='Enter question title' type={'text'} value={title}  onChange={(e)=> setTitle(e.target.value)}/>
                 </div>
-                <button>
-                    Next
-                </button>
             </div>
             <div>
-                <TinyMCE/>
-            </div>
-            <div className='tags'>
-                <ReactTags
-                    classNames={
-                        {
-                            tags: 'tags',
-                            tagInput: 'input-tag',
-                            tagInputField: 'input-field',
-                            selected: 'selected',
-                            tag: 'tag',
-                            remove: 'remove',
-                            suggestions: 'sugestions',
-                            activeSuggestion: 'active-suggestion'
-                        }
-                    }
-                    tags={tags}
-                    suggestions={[]}
-                    delimiters={delimiters}
-                    autocomplete
-                    inputFieldPosition='inline'
-
-                />
+                <TinyMCE input={inputHandler} />
             </div>
         </div>
     </div>

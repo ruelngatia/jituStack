@@ -33,7 +33,7 @@ export default function Home() {
   const displayHandler = ()=>{
     if(questionState.loading){
       return <div>loading</div> 
-    }else if(questionState.error == '404'){
+    }else if(questionState.error === '404'){
       console.log('some error was found:   ');
     }
   }

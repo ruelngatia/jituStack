@@ -6,6 +6,7 @@ import  './Answers.css'
 export default function Answers() {
   return (
     <div className='answers'>
+
         <AnswerCard/>
         <TinyMCE/>
     </div>

@@ -10,18 +10,20 @@ export default function AnswerCard() {
     <div className='answer-card'>
         <div className='question-title'>
             <h3>PL/SQL MERGE INTO Compilation Errors</h3>
-            <span>Accepted</span>
+            {/* <span>Accepted</span> */}
         </div>
-        <div>
-            <AnswerParagraph/>
+        <div className='answers'>
+          <div>
+              <AnswerParagraph/>
+          </div>
+          <div className='div-likes'>
+            <Likes/>
+          </div>
+          <br/>
+          <p>Comments :</p>
+          <Comment/>
+          <CommentInput/>
         </div>
-        <div className='div-likes'>
-          <Likes/>
-        </div>
-        <br/>
-        <p>Comments</p>
-        <Comment/>
-        <CommentInput/>
         <span>Your Answer</span>
     </div>
   )
