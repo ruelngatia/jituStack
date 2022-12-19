@@ -205,6 +205,17 @@ const tabController = async(req,res)=>{
     }
 }
 
+const addView = async(req,res)=>{
+
+    try {
+        let returnValue = await (await exec('add_question_view',req.body)).returnValue
+        if(returnValue !== 0) return res.status(401).send({message: 'view was not added'}) 
+        res.status(201).send({message: 'view was added'})
+        
+    } catch (error) {
+        res.status(500).send({message: 'internal sever error'})
+    }
+}
 
 
 module.exports = {
@@ -221,5 +232,6 @@ module.exports = {
     mostlyAnsweredQuestion,
     preferedAnswer,
     getAnswersForQuestion,
-    tabController
+    tabController,
+    addView
 }

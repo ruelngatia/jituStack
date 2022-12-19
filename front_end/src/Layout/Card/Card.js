@@ -8,6 +8,7 @@ import './Card.css'
 import { getAnswers } from '../../redux/answerSlice'
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
+import axios from 'axios'
 
 TimeAgo.addDefaultLocale(en)
 
@@ -27,8 +28,11 @@ export default function Card(props) {
     asked: timeAgo.format(new Date(question.date_asked),'round')
   }
   
-
-    
+  const config = {
+    headers:{
+      Authorization: "Bearer ".concat(localStorage.getItem('token'))
+    }
+  }
 
 
   return (
@@ -38,6 +42,14 @@ export default function Card(props) {
             <span className='question-title' onClick={()=>{
               navigator('/answers')
               dispatch(getAnswers(question.questions_id))
+              axios.post('http://localhost:4040/addquestionview',{"question_id": question.questions_id
+              },config)
+                .then((v)=>{
+                  console.log('added view');
+                })
+                .catch((err)=>{
+                  console.log(err);
+                })
             }}>
                 {question.question_title}
             </span>

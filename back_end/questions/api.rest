@@ -126,3 +126,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUD
 ###
 GET http://localhost:4040/
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
+
+///add a question view
+###
+POST http://localhost:4040/addview
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUDoF_58jOtc
+
+{
+    "question_id": 5
+}

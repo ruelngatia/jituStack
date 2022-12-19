@@ -3,6 +3,12 @@
     padding-top: .9rem;
     
 }
+
+.answer-card .answers{
+    margin-left: 1rem;
+    font-size: .9rem;
+}
+
 .answer-card #comment{
     font-size: .9rem;
     color:  rgb(51, 51, 158);
