@@ -10,11 +10,19 @@
     outline: none;
     border-bottom: 1px solid grey;
 }
-
-
 .comment-input .comment-button-div{
+    margin-top: 2px;
     display: flex; 
+    gap: 10px;
 }
+.comment-input .comment-button-div {
+    display: none;
+}
+
+.comment-input input:focus  ~ div{
+    display: flex;
+}
+
 
 .comment-input .comment-button-div button{
     color: white;
@@ -25,6 +33,11 @@
     border: none;
     border-radius: 4px;
     background-color: #4886B1;
+    
+}
+
+.comment-input .comment-button-div button:nth-child(1){
     margin-left: auto;
+    background-color: tomato;
 }
 

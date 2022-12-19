@@ -21,7 +21,7 @@ export default function AskQuestion() {
         console.log(ques);
         
 
-        if(questionObj.question == '' || questionObj.question_title == ''){
+        if(questionObj.question === '' || questionObj.question_title === ''){
             return console.log(' did not continue');
         }
         postQuestion()

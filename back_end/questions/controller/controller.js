@@ -140,12 +140,32 @@ const getAnswersForQuestion = async(req,res)=>{
     try {
         const {question_id} = req.params
         let result = await (await exec('getAnswersToQuestion',{question_id: question_id})).recordset
+        let question = await (await exec('get_question',{question_id: question_id})).recordset[0]
+
+       result = Promise.all(
+        result.map(async(ans)=>{
+            let likes = await (await exec('getLikesForAns',{answer_id: ans.answer_id})).recordset
+            let like = likes[2]?.ctn || 0
+            let dislike = likes[1]?.ctn || 0
+            
+            let comments =await (await exec('getComments',{answer_id:ans.answer_id})).recordset
+
+
+            ans = {...ans,like:{like,dislike},comments: comments}
+            return ans
+        })
+       )
+       result = {question, answers: await result}
+         
+        
         if(result.length == 0) return res.status(404).send({message: 'answers do not exist'})
-        res.status(200).send(result)
+        res.status(200).send(await result)
     } catch (error) {
+        console.log(error);
         res.status(500).send({message: 'internal sever error'}) 
     }
 }
+
 
 const tabController = async(req,res)=>{
     try {
@@ -184,6 +204,8 @@ const tabController = async(req,res)=>{
         console.log(error);
     }
 }
+
+
 
 module.exports = {
     getAllQuestions,

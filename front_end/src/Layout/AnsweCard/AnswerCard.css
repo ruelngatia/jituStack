@@ -1,6 +1,15 @@
 .answer-card{
     padding-inline: .9rem;
     padding-top: .9rem;
+    
+}
+.answer-card #comment{
+    font-size: .9rem;
+    color:  rgb(51, 51, 158);
+}
+
+.answer-card .question{
+    border-bottom: 1px solid #C5C5C5;
 }
 
 .answer-card .question-title{
@@ -19,12 +28,3 @@
 .answer-card .div-likes{
     float: right;
 }
-
-/* .answer-card .question-title span{
-    font-size: .7rem;
-    font-weight: 700;
-    padding: .1rem .3rem;
-    color: green;
-    border: 2px solid green;
-    border-radius: 1em;
-} */
