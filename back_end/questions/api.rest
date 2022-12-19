@@ -78,7 +78,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.Mg.wc92jKSt7QF0CaLGvP4PllfwzyEssEauUD
 
 //search a question 1
 ###
-GET http://localhost:4040/sq 
+GET http://localhost:4040/askquestion/:?question=sq 
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.cnVlbA.qrVzXO_Deyk7ObeqT7CMy2BYqUlLO2rRzkCQs1OBNV4
 
 /// add a comment

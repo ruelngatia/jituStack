@@ -6,9 +6,13 @@ import User from '../../Components/User/User'
 import LanguageList from '../LanguageList/LanguageList'
 import './Card.css'
 import { getAnswers } from '../../redux/answerSlice'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+
+TimeAgo.addDefaultLocale(en)
 
 export default function Card(props) {
-
+  const timeAgo = new TimeAgo('en-US')
   const navigator = useNavigate()
   const dispatch = useDispatch()
   let question = props.question
@@ -20,9 +24,12 @@ export default function Card(props) {
   const user = {
     username: question.username,
     image_url : question.profile_image,
-    asked: Date(question.date_asked)
+    asked: timeAgo.format(new Date(question.date_asked),'round')
   }
   
+
+    
+
 
   return (
     <div className='card'>

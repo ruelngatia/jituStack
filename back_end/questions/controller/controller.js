@@ -81,7 +81,7 @@ const addDislike = async(req,res)=>{
 
 const searchQuestion = async(req,res)=>{
     try {
-        let {question} = req.params
+        let {question} = req.query
         let results = await (await exec('search_question',{question: question})).recordset
         if(results.length == 0) return res.status(404).send({message: "no such question was found"})
         res.status(201).send(results)

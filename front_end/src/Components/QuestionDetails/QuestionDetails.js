@@ -11,7 +11,7 @@ export default function QuestionDetails(props) {
         </div>
         <div>
             <span>{details.answers}</span>
-            <span className='smaller-text'> Answes</span>
+            <span className='smaller-text'> Answers</span>
         </div>
         <div>
             <span>{details.views}</span>

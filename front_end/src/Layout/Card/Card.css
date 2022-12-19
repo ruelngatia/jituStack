@@ -18,6 +18,10 @@
 .card p{
     font-size: .7rem;
     width: fit-content;
+    height: 2.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     overflow-wrap: break-word;
 }
 
