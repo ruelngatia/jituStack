@@ -77,11 +77,13 @@ export default function AnswerCard(props) {
                 </div>
                 <br/>
                 <p id='comment' onClick={()=>{setHideComent(!hideComent)}}>Comments :</p>
-                <div className='show-comments' style={hideComent?{'display':'none'}:{}}>
+
+                  <div className={`show-comments ${hideComent?'hideComponent':''}`} >
                   {answer.comments.map((comment)=>{
                     return <Comment  comment={comment}/>
                   })}
                 </div>
+               
                 
                 <CommentInput answer_id = {answer.answer_id}/>
           </div>
