@@ -27,7 +27,8 @@ function App() {
 
       <div className='contents' >
         <div id='container1'>
-        <LeftTab/>
+          {localStorage.getItem('token')?<LeftTab/>:''}
+        
         </div>
         <div id='container2'>
           <Routes>

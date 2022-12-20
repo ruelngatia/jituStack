@@ -8,6 +8,7 @@ export default function LogoutMenu() {
         <ul>
             <li><Link className='link' to={'/login'} onClick={()=>{
               localStorage.removeItem('token')
+              localStorage.removeItem('user')
             }}>Logout</Link></li>
         </ul>
     </div>

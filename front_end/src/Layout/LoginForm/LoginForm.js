@@ -48,6 +48,7 @@ export default function LoginForm() {
             const user = result.data
             dispatch(setCurrentUser(user))
             localStorage.setItem('token',user.token)
+            localStorage.setItem('user',userName)
             navigator('/')
        }).catch((err)=>{
             notify()

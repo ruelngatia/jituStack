@@ -5,6 +5,10 @@ import { MdOutlineSearch ,MdCancel} from "react-icons/md";
 import DropMenu from '../DropDownMenu/DropMenu';
 import LogoutMenu from '../../Components/LogoutMenu/LogoutMenu';
 import axios from 'axios'
+import Avatar from 'react-avatar';
+
+
+
 
 export default function Nav() {
 
@@ -54,7 +58,7 @@ export default function Nav() {
                     menuHidden?setshowDropMenu({display:''}):setshowDropMenu({display:'none'}) 
                 }}
             >
-                <img src='https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=399&q=80' alt='user'/>
+                {!localStorage.getItem('token')?<Avatar name='?' size='30' round />:<Avatar name={localStorage.getItem('user')} size='30' round/>}
                 <div className='profile-menu' style={showDropMenu}><LogoutMenu/></div>
             </li>
         </ul>

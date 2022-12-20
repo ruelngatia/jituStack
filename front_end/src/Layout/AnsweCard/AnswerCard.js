@@ -73,7 +73,7 @@ export default function AnswerCard(props) {
                     <AnswerParagraph answer={answer.answer}/>
                 </div>
                 <div className='div-likes'>
-                  <Likes likes={answer.like} answer_id={answer.answer_id}/>
+                  <Likes likes={answer.like} existinglike={answer.existinglike} answer_id={answer.answer_id}/>
                 </div>
                 <br/>
                 <p id='comment' onClick={()=>{setHideComent(!hideComent)}}>Comments :</p>

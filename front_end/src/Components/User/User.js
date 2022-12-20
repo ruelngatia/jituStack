@@ -6,8 +6,6 @@ export default function User(props) {
 
   const user = props.userProfile
 
-  console.log(user.image_url);
-
   return (
     <div className='user'>
         {user.image_url=== null?<Avatar size='32' className='avatar' name={user.username} />:

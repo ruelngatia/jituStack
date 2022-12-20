@@ -40,12 +40,12 @@ export default function Likes(props) {
 
   return (
     <div className='likes'>
-        <div className='thumbs-up'>
-            <span onClick={()=>{addlike()}}><MdThumbUpOffAlt /></span>
-            <span className='thumbs-up-count'>{details.like}</span>
+        <div className='thumbs-up' >
+            <span onClick={()=>{addlike()}}><MdThumbUpOffAlt  color={props.existinglike === 1 ?'black':''}/></span>
+            <span className='thumbs-up-count' >{details.like}</span>
         </div>
         <div className='thumbs-down'>
-            <span onClick={()=>{addDislike()}}><MdThumbDownOffAlt /></span>
+            <span onClick={()=>{addDislike()}}><MdThumbDownOffAlt color={props.existinglike === 0 ?'black':''}/></span>
             <span className='thumbs-down-count'>{details.dislike}</span>
         </div>
     </div>
