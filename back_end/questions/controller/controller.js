@@ -136,6 +136,22 @@ const preferedAnswer = async(req,res)=>{
     }
 }
 
+const decodeLikes =(likes)=>{
+    const likedetails = {
+        like: 0,
+        dislike: 0 
+    }
+    likes.forEach(element => {
+        if(element.liking === true){
+            likedetails.like = element.ctn
+        }else if(element.liking === false){
+            likedetails.dislike = element.ctn
+        }
+    });
+    
+    return likedetails
+}
+
 const getAnswersForQuestion = async(req,res)=>{
     try {
         const {question_id} = req.params
@@ -145,8 +161,9 @@ const getAnswersForQuestion = async(req,res)=>{
        result = Promise.all(
         result.map(async(ans)=>{
             let likes = await (await exec('getLikesForAns',{answer_id: ans.answer_id})).recordset
-            let like = likes[2]?.ctn || 0
-            let dislike = likes[1]?.ctn || 0
+            const likedetails = decodeLikes(likes)
+            let like = likedetails.like
+            let dislike = likedetails.dislike
             
             let comments =await (await exec('getComments',{answer_id:ans.answer_id})).recordset
             let{user_id} = req.body
