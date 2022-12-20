@@ -33,7 +33,7 @@ const loginUser = async(req,res)=>{
         if(result === undefined) return res.status(404).send({message: 'wrong username or password'})
         bcrypt.compare(password,result.password,(err,Bresult)=>{
             if(Bresult){
-                let token = jwt.sign(result.user_id,process.env.SECRET,{expiresIn: '3h'})
+                let token = jwt.sign({user: result.user_id},process.env.SECRET,{expiresIn: 60 * 60 * 3 })
                 return res.status(200).send({
                     token: token,
                     username : username,
