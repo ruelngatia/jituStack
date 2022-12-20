@@ -44,6 +44,7 @@ export default function AnswerCard(props) {
 }); 
 
   const inputHandler = async(input)=>{
+    console.log(answers.question.questions_id);
     axios.post('http://localhost:4040/addanswer',{
       question_id: answers.question.questions_id,
       answer: input
@@ -65,7 +66,6 @@ export default function AnswerCard(props) {
 
         {
           answers.answersList.map((answer)=>{
-            console.log(answer);
             return (
               <div className='answers' key={Math.random()}>
       
@@ -73,7 +73,7 @@ export default function AnswerCard(props) {
                     <AnswerParagraph answer={answer.answer}/>
                 </div>
                 <div className='div-likes'>
-                  <Likes likes={answer.like} existinglike={answer.existinglike} answer_id={answer.answer_id}/>
+                  <Likes likes={answer.like} existinglike={answer.existinglike} answer_id={answer.answer_id} question_id={answers.question.questions_id}/>
                 </div>
                 <br/>
                 <p id='comment' onClick={()=>{setHideComent(!hideComent)}}>Comments :</p>

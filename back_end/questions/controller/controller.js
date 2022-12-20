@@ -151,7 +151,7 @@ const getAnswersForQuestion = async(req,res)=>{
             let comments =await (await exec('getComments',{answer_id:ans.answer_id})).recordset
             let{user_id} = req.body
             let existinglike = await (await exec('checkMyLike',{user_id,answer_id:ans.answer_id})).recordset[0]
-
+            
 
             ans = {...ans,like:{like,dislike},existinglike: existinglike.likeValue,comments: comments}
             return ans

@@ -42,7 +42,7 @@ const answerSlice = createSlice({
     },
     extraReducers: (builder)=>{
         builder.addCase(getAnswers.fulfilled,(state,action)=>{
-            state.question = action.payload.question
+            state.question = action.payload.question || state.question
             state.answersList = action.payload.answers
         })
     }
