@@ -33,7 +33,7 @@ function App() {
         <div id='container2'>
           <Routes>
             <Route path='/:question' element={<Home/>}/>
-            <Route path='/?tab' element={<Home/>}/>
+            {/* <Route path='/?tab' element={<Home/>}/> */}
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/answers' element={<Answers/>}/>

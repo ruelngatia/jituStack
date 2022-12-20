@@ -6,13 +6,19 @@
     box-shadow: 2px 3px 8px black;
     border-radius: 8px;
     width: 16rem;
-    height: 18rem;
+    height: 19rem;
     margin-top: 10rem;
     align-items: center;
 }
 
 .signup-form div input{
     height: 1.8rem;
+}
+
+.signup-form .err-span{
+    color: red;
+    float: right;
+    font-size: .5rem;
 }
 
 .signup-form h3{

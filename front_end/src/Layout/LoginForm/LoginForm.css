@@ -30,6 +30,12 @@
    
 }
 
+.login-form form .err-span{
+    color: red;
+    float: right;
+    font-size: .5rem;
+}
+
 .login-form form .login-signup{
     font-size: .6rem;
     text-align:  right;

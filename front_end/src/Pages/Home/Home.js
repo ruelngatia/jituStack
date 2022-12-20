@@ -13,21 +13,21 @@ export default function Home() {
  
  
   
-  let p = useLocation()
+  let {pathname, search} = useLocation()
   // console.log(`${new URLSearchParams(p.search).get('tab')}`);
 
   useEffect(
     ()=>{
 
       let path = ''
-      if(p.search !== ''){
-        path = p.pathname + p.search
+      if(search !== ''){
+        path = pathname + search
       }else{
-        path =  p.pathname
+        path =  pathname
       }
 
       dispatch(getAllQuestions(path))
-    },[p]
+    },[pathname, search]
   )
 
   const displayHandler = ()=>{

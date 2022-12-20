@@ -5,6 +5,8 @@ import './LoginForm.css'
 import axios from 'axios'
 import { setCurrentUser } from '../../redux/userReducer'
 import { toast } from 'react-toastify';
+import { schema } from '../../validation/validation'
+
 
 
 
@@ -38,6 +40,10 @@ export default function LoginForm() {
         }
 
 
+        const {error} = schema.validate({username,password})
+        if (error?.message.includes('username')) return setuserError(true)
+        if (error?.message?.includes('password')) return setPassError(true)
+
 
        axios.post('http://localhost:5050/users/login',
             {
@@ -70,6 +76,7 @@ export default function LoginForm() {
                     onChange={(e)=>{setUsername(e.target.value)}}
                     className = {userError?'error': ''}
                 />
+                {userError?<span className='err-span'>username should have more than 3 chars</span>:<></>}
             </div>
             <div>
                 <label>Password</label>
@@ -80,6 +87,7 @@ export default function LoginForm() {
                     onChange={(e)=>{setPassword(e.target.value)}}
                     className = {PassError ?'error': ''}
                 />
+                {PassError?<span className='err-span'>password should have 6 chars</span>:<></>}
             </div>
             <div className='login-signup'>
                     Don't have an account 
