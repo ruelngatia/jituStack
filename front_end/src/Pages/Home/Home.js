@@ -27,6 +27,7 @@ export default function Home() {
       }
 
       dispatch(getAllQuestions(path))
+      console.log(path);
     },[pathname, search]
   )
 

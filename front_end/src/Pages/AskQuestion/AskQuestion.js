@@ -2,16 +2,41 @@ import {React,useState} from 'react'
 import './AskQuestion.css'
 import TinyMCE from'../../Components/TinyMCE/TinyMCE'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 
 export default function AskQuestion() {
 
     const [title, setTitle] = useState('')
+    const navigator = useNavigate()
 
     let questionObj = {
         question_title: '',
         question: ''
     }
+
+    const notifyfail = () => toast.error("question not not adde",{
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    }); 
+    
+    const notifySuccess = () => toast.success("question was added",{
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
     const inputHandler = (ques)=>{
         questionObj.question = ques
@@ -38,10 +63,11 @@ export default function AskQuestion() {
         
         axios.post('http://localhost:4040/addquestion',questionObj,config)
         .then((res)=>{
-            console.log('done');
+            notifySuccess()
+            navigator('/')
         })
         .catch((error)=>{
-            console.log('failed');
+           notifyfail()
         })
     }
 

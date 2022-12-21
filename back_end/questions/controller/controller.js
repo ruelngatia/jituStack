@@ -198,8 +198,8 @@ const tabController = async(req,res)=>{
                 res.status(200).send(result)
             break;
             case 'myquestions':
-                let {id} = req.params
-                result = await (await exec('get_asked_question_by',{user_id: id})).recordset
+                let {user_id} = req.body
+                result = await (await exec('get_asked_question_by',{user_id})).recordset
                 if(result.length < 1) return res.status(404).send({message:{message: 'empty frequent results'}})
                 res.status(200).send(result)
             break;

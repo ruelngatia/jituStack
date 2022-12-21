@@ -6,6 +6,7 @@
     justify-content: space-between;
     gap: .8rem;
     border-bottom: 1px solid #A59F9F;
+    position: relative;
 }
 
 
@@ -28,6 +29,31 @@
 .card :nth-child(5){
     margin-left: auto;
     margin-right: auto;
+}
+
+.card .del-menu{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+.card .del-menu ul{
+    position: absolute;
+    list-style: none;
+    font-size: .7rem;
+    padding-inline: .3rem;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+    box-shadow: 1px 2px 5px black;
+}
+
+.card .del-menu ul li:hover{
+    transition: .5s
+}
+
+.card .del-menu ul li:hover{
+    color: tomato;
 }
 
 

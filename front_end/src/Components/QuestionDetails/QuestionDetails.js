@@ -6,11 +6,11 @@ export default function QuestionDetails(props) {
   return (
     <div className='question-details'>
         <div>
-            <span>{details.likes}</span>
-            <span className='smaller-text'> Likes</span>
+            <span>{}</span>
+            <span className='smaller-text'></span>
         </div>
         <div>
-            <span>{details.answers}</span>
+            <span>{details.answers || 0}</span>
             <span className='smaller-text'> Answers</span>
         </div>
         <div>
