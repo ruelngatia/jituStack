@@ -70,7 +70,7 @@ const notifySuccess = () => toast.success("question was deleted",{
         <div className='inner-card'>
             <User userProfile={user}/>
             <span className='question-title' onClick={()=>{
-              navigator('/answers')
+              navigator(`/answers/${question.questions_id}`)
               dispatch(getAnswers(question.questions_id))
               axios.post('http://localhost:4040/addquestionview',{"question_id": question.questions_id
               },config)

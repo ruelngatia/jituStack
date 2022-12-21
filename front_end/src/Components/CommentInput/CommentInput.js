@@ -16,10 +16,11 @@ export default function CommentInput(props) {
     <div className='comment-input'>
         <input  onChange={(e)=>{setComment(e.target.value)}} type={'text'} value={comment} placeholder={'Comment here ....'} />
         <div className='comment-button-div' >
-            <button onClick={()=>{setComment('')}}>
+            <button onClick={()=>{setComment(''); console.log('canceled');}}>
                 Cancel
             </button>
             <button onClick={()=>{
+              if(comment === '') return
               axios.post('http://localhost:4040/addcomment',{
                 answer_id: props.answer_id,
                 comment: comment

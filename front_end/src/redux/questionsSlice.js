@@ -37,6 +37,9 @@ export const questionsSlice = createSlice({
     name: 'questions',
     initialState: initialState,
     reducers: {
+        setQuestions: (state,action)=>{
+            state.questions = action.payload
+        },
         setError: (state)=>{
             state.error = '404'
         },
@@ -55,4 +58,4 @@ export const questionsSlice = createSlice({
 
 
 export default questionsSlice.reducer;
-export const {setError,setLoading} = questionsSlice.actions
+export const {setError,setLoading,setQuestions} = questionsSlice.actions

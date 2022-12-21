@@ -7,6 +7,12 @@
     margin-left: 1rem;
     font-size: .9rem;
     position: relative;
+    display: flex;
+}
+
+.answer-card .answers .verified-check{
+    padding-top: 20px;
+    padding-left: 2px;
 }
 
 .answer-card #comment{
@@ -26,6 +32,15 @@
     border-bottom: 1px solid #C5C5C5;
 }
 
+.answer-card .question pre{
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    color: black;
+    font-size: .7rem;
+    font-weight: 500;
+    padding: 3px;
+}
+
 .answer-card .mark-pref-menu{
     position: absolute;
     top: 0px;
@@ -35,11 +50,17 @@
 .answer-card .mark-pref-menu ul{
     list-style: none;
     position: absolute;
-    padding: 1px 3px;
+    padding: 2px 3px;
     border-radius: 2px;
     font-size: .5rem;
     background-color: #FAFAFA;
-    box-shadow: 3px 1.5px 5px black;
+    box-shadow: 1.8px 1.5px 3px black;
+}
+
+
+.answer-card .mark-pref-menu ul li:hover{
+    color-scheme: green;
+    cursor: pointer;
 }
 
 .answers .hideComponent{

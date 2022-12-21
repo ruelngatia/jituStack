@@ -11,6 +11,7 @@ export default function Comment(props) {
   const comment = props.comment
 
 
+  console.log(comment);
   return (
     <div className='comment'>
        <div>

@@ -15,13 +15,13 @@
     display: flex; 
     gap: 10px;
 }
-.comment-input .comment-button-div {
+/* .comment-input .comment-button-div {
     display: none;
 }
 
 .comment-input input:focus  ~ div{
     display: flex;
-}
+} */
 
 
 .comment-input .comment-button-div button{

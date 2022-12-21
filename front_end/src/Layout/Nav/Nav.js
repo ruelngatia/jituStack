@@ -6,7 +6,9 @@ import DropMenu from '../DropDownMenu/DropMenu';
 import LogoutMenu from '../../Components/LogoutMenu/LogoutMenu';
 import axios from 'axios'
 import Avatar from 'react-avatar';
-
+import { useDispatch } from 'react-redux';
+import { setQuestions } from '../../redux/questionsSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -14,13 +16,14 @@ export default function Nav() {
 
 
   const [search, setSearch] = useState('')
-
   const[showMenu,setshowMenu] =useState({display:'none'})
   const[hidden,sethidden] =useState(true)
-
  
   const[showDropMenu,setshowDropMenu] =useState({display:'none'})
   const[menuHidden,setmenuHidden] =useState(true)
+
+  const dispatch = useDispatch()
+  const navigator = useNavigate()
 
    const menuClickedhandler = () => {
     sethidden(!hidden)
@@ -42,12 +45,21 @@ export default function Nav() {
             </li>
             <li className='nav-items'>Questions</li>
             <li className='nav-items'>
-                <input type={'text'} placeholder={'Search question'} value={search}
-                onChange={async(e)=>{
-                    setSearch(e.target.value)
-                    let data = (await axios.get(`http://localhost:4040/askquestion/:?question=${search}`,config)).data
-                    console.log(data);
-                }}
+                <input 
+                  disabled ={localStorage.getItem('token')=== null}
+                  type={'text'} 
+                  placeholder={'Search question'}
+                  value={search}
+                  onFocus={()=>{
+                    navigator('/')
+                  }}
+                  onChange={async(e)=>{
+                    
+                      setSearch(e.target.value)
+                      let data = (await axios.get(`http://localhost:4040/askquestion/:?question=${search}`,config)).data
+                      dispatch(setQuestions(data))
+                      console.log(data);
+                  }}
                 />
             </li>
             <li className='nav-items'><MdOutlineSearch size={20}/></li>

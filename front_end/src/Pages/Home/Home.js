@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {  useLocation} from 'react-router-dom'
 import { getAllQuestions } from '../../redux/questionsSlice'
 import Card from '../../Layout/Card/Card'
+import {DotLoader} from 'react-spinners'
 
 
 export default function Home() {
@@ -45,7 +46,11 @@ export default function Home() {
     <div className='home'>
 
        {
-        questionState.loading ? <div>loading</div> :  questionState.questions?.map(element => <Card key={Math.random()} question ={element}/>)
+        questionState.loading ? 
+        <div>
+          <DotLoader color="#36d7b7" />
+        </div> 
+          :  questionState.questions?.map(element => <Card key={Math.random()} question ={element}/>)
        }
              
     </div>

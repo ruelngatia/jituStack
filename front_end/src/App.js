@@ -33,10 +33,9 @@ function App() {
         <div id='container2'>
           <Routes>
             <Route path='/:question' element={<Home/>}/>
-            {/* <Route path='/?tab' element={<Home/>}/> */}
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
-            <Route path='/answers' element={<Answers/>}/>
+            <Route path='/answers/:id' element={<Answers/>}/>
             <Route path='/askquestion' element={<AskQuestion/>}/>
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='*' element={<div>Error 404</div>}/>
