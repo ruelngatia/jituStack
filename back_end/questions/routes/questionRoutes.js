@@ -15,7 +15,8 @@ const {
     preferedAnswer,
     getAnswersForQuestion,
     tabController,
-    addView
+    addView,
+    markPreferedAnswer
 } = require('../controller/controller')
 const {verifyToken} = require('../middleware/middleware')
 
@@ -34,6 +35,7 @@ questionRouter.get('/getmyquestion/:id',verifyToken,getUserQuestion)
 questionRouter.patch('/setPreferedanswer',verifyToken,preferedAnswer)
 questionRouter.get('/answers/:question_id',verifyToken,getAnswersForQuestion)
 questionRouter.post('/addquestionview',verifyToken,addView)
+// questionRouter.patch('/setprefered/:answer_id',verifyToken,markPreferedAnswer)
 
 
 

@@ -128,7 +128,8 @@ const mostlyAnsweredQuestion = async(req,res)=>{
 
 const preferedAnswer = async(req,res)=>{
     try{
-        let returnedValue = await (await exec('set_prefered_answer',req.body)).returnValue
+        const {answer_id} = req.body
+        let returnedValue = await (await exec('set_prefered_answer',{answer_id})).returnValue
         if(returnedValue != 0) return res.status(401).send({message: 'preffered answer was not set'})
         res.status(200).send({message: "prefered answer"})
     }catch(error){
@@ -218,7 +219,6 @@ const tabController = async(req,res)=>{
                 break;
         }
 
-        res.status(200).send([])
     } catch (error) {
         console.log(error);
     }
@@ -236,6 +236,17 @@ const addView = async(req,res)=>{
     }
 }
 
+const markPreferedAnswer = async(req,res)=>{
+    try {
+        let returnValue = await (await exec('set_prefered_answer',req.params)).returnValue
+        console.log(req.params);
+        console.log(returnValue);
+        if(returnValue !== 0) return res.status(401).send({message: 'anser not set as prefered'}) 
+        res.status(201).send({message: 'answer marked as prefered'})
+    } catch (error) {
+        res.status(500).send({message: 'internal sever error'}) 
+    }
+}
 
 module.exports = {
     getAllQuestions,
@@ -252,5 +263,6 @@ module.exports = {
     preferedAnswer,
     getAnswersForQuestion,
     tabController,
-    addView
+    addView,
+    markPreferedAnswer
 }

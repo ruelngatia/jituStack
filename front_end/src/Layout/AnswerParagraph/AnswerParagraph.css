@@ -50,15 +50,13 @@ code::-webkit-scrollbar-thumb:hover{
 }
 
 
-
-
 code::before{
     padding-inline: 2px;
     padding-block: 1px;
     font-size:14px;
     font-weight: 600;
     color: black;
-    position: absolute;
+    /* position: absolute; */
     content: 'code snippet :';
     top: 0px;
     left: 0;

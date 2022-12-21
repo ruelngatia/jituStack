@@ -9,18 +9,42 @@ import './AnswerCard.css'
 import axios from 'axios'
 import { getAnswers } from '../../redux/answerSlice'
 import { toast } from 'react-toastify';
+import { MdOutlineMoreVert } from "react-icons/md";
 
 export default function AnswerCard(props) {
 
   const answers = useSelector((state)=> state.answers)
   const [hideComent, setHideComent] = useState(true)
   const dispatch = useDispatch()
+  const [showmenu, setShowmenu] = useState(false)
 
   const config = {
     headers:{
       Authorization: "Bearer ".concat(localStorage.getItem('token'))
     }
   }
+
+  const notifyfail = () => toast.error("Was not markrd as prefered",{
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+}); 
+
+const notifySuccess = () => toast.success("Marked as prefered",{
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+});
 
   const notifyAnswerSuccess = () => toast.success("Answer added",{
     position: "top-right",
@@ -68,7 +92,21 @@ export default function AnswerCard(props) {
           answers.answersList.map((answer)=>{
             return (
               <div className='answers' key={Math.random()}>
-      
+                <div className='mark-pref-menu'>
+                  <MdOutlineMoreVert onClick={()=>{setShowmenu(!showmenu)}}/>
+                  {showmenu?<ul>
+                    <li onClick={()=>{
+                      axios.patch(`http://localhost:4040/setPreferedanswer`,{answer_id: answer.answer_id},config)
+                      .then((v)=>{
+                        notifySuccess()
+                        dispatch(getAnswers(answers.question.questions_id))
+                      })
+                      .catch((e)=>{
+                        notifyfail()
+                      })
+                    }}>Mark_prefered</li>
+                  </ul>:<></>}
+                </div>
                 <div>
                     <AnswerParagraph answer={answer.answer}/>
                 </div>
