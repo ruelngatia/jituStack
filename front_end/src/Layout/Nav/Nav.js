@@ -56,9 +56,15 @@ export default function Nav() {
                   onChange={async(e)=>{
                     
                       setSearch(e.target.value)
-                      let data = (await axios.get(`http://localhost:4040/askquestion/:?question=${search}`,config)).data
-                      dispatch(setQuestions(data))
-                      console.log(data);
+                      try {
+                        let data = (await axios.get(`http://localhost:4040/askquestion/:?question=${search}`,config)).data
+                        dispatch(setQuestions(data))
+                      } catch (error) {
+                        console.log( error);
+                      }
+                      
+                      
+                      
                   }}
                 />
             </li>

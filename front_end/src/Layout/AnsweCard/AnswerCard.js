@@ -79,14 +79,15 @@ const notifySuccess = () => toast.success("Marked as prefered",{
     theme: "light",
 }); 
 
-  const inputHandler = async(input)=>{
+  const inputHandler = async(input,clear)=>{
     console.log(answers.question.questions_id);
     axios.post('http://localhost:4040/addanswer',{
       question_id: answers.question.questions_id,
       answer: input
     },config).then((value)=>{
       notifyAnswerSuccess()
-      dispatch(getAnswers(answers.question.questions_id))
+      clear()
+      dispatch(getAnswers(answers.question.questions_id))  
     }).catch((err)=>{
       notifyAnswerFail()
     })
@@ -99,7 +100,7 @@ const notifySuccess = () => toast.success("Marked as prefered",{
             <h3>{answers.question.question_title}</h3>
         </div>
         <div className='question' dangerouslySetInnerHTML={{__html:answers.question.question}}/>
-
+        <div>Answers:</div>
         {
           answers.answersList.map((answer)=>{
     

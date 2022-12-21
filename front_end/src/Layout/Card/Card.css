@@ -9,6 +9,9 @@
     position: relative;
 }
 
+.card .inner-card{
+    width: 80%;
+}
 
 .card .question-title{
     color: #4886B1;

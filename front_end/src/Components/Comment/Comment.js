@@ -16,7 +16,7 @@ export default function Comment(props) {
     <div className='comment'>
        <div>
             <p>
-                {'cat'}
+                {[comment.comment[1]]}
             </p>
        </div>
         <div className='comment-stamp'>

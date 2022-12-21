@@ -9,7 +9,11 @@ export default function TinyMCE(props) {
 
     const clickHalnder = ()=>{
         setCodeSnippet(editorRef.current.getContent())
-        props.input(codeSnippet)
+        props.input(codeSnippet,clear)
+    }
+
+    const clear = ()=>{
+      setCodeSnippet('')
     }
 
   return (

@@ -1,11 +1,17 @@
 import {React, useState} from 'react'
 import './CommentInput.css'
 import axios  from 'axios'
+import { useDispatch } from 'react-redux'
+import { getAnswers } from '../../redux/answerSlice'
+import { useLocation } from 'react-router-dom'
 
 export default function CommentInput(props) {
 
  const [comment, setComment] = useState('')
- 
+ const dispatch = useDispatch()
+
+ let {pathname, search} = useLocation()
+
  const config = {
   headers:{
     Authorization: "Bearer ".concat(localStorage.getItem('token'))
@@ -26,6 +32,7 @@ export default function CommentInput(props) {
                 comment: comment
               },config).then((n)=>{
                 console.log('suuc');
+                dispatch(getAnswers(pathname.split("/")[2]))
                 setComment('')
               }).catch((err)=>{
                 console.log('err');
