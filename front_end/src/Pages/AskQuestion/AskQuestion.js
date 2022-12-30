@@ -38,6 +38,17 @@ export default function AskQuestion() {
       theme: "light",
     });
 
+    const notifyempty = () => toast.error("Both question title and answer body are required",{
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
     const inputHandler = (ques)=>{
         questionObj.question = ques
         questionObj.question_title = title 
@@ -47,6 +58,7 @@ export default function AskQuestion() {
         
 
         if(questionObj.question === '' || questionObj.question_title === ''){
+            notifyempty()
             return console.log(' did not continue');
         }
         postQuestion()

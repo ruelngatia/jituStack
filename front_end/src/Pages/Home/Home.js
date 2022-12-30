@@ -33,10 +33,18 @@ export default function Home() {
   )
 
   const displayHandler = ()=>{
+    console.log('The new state is this: ')
     if(questionState.loading){
       return <div>loading</div> 
     }else if(questionState.error === '404'){
-      console.log('some error was found:   ');
+      return 
+        <div>
+          <div>some error occured please try again</div>
+        </div>
+    }else{
+      <div>
+        Contains everything else:
+      </div>
     }
   }
 
@@ -50,7 +58,7 @@ export default function Home() {
         <div>
           <DotLoader color="#36d7b7" />
         </div> 
-          :  questionState.questions?.map(element => <Card key={Math.random()} question ={element}/>)
+          : questionState.questions?.map(element => <Card key={Math.random()} question ={element}/>)
        }
              
     </div>

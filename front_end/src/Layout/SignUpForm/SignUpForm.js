@@ -67,7 +67,7 @@ export default function SignUpForm() {
             <br/>
             <input type={'text'} value={username} onChange={(e)=>{setusername(e.target.value); console.log(username);}}/>
             <br/>
-            {usenameErr?<span className='err-span'>username should have more than 3 chars</span>:<></>}
+            {usenameErr?<span className='err-span'>invalid username</span>:<></>}
         </div>
         <div>
             <label>Email</label>

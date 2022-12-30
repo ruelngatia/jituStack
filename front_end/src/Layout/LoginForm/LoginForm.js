@@ -76,7 +76,7 @@ export default function LoginForm() {
                     onChange={(e)=>{setUsername(e.target.value)}}
                     className = {userError?'error': ''}
                 />
-                {userError?<span className='err-span'>username should have more than 3 chars</span>:<></>}
+                {userError?<span className='err-span'>invalid username </span>:<></>}
             </div>
             <div>
                 <label>Password</label>
@@ -87,7 +87,7 @@ export default function LoginForm() {
                     onChange={(e)=>{setPassword(e.target.value)}}
                     className = {PassError ?'error': ''}
                 />
-                {PassError?<span className='err-span'>password should have 6 chars</span>:<></>}
+                {PassError?<span className='err-span'>invalid password</span>:<></>}
             </div>
             <div className='login-signup'>
                     Don't have an account 

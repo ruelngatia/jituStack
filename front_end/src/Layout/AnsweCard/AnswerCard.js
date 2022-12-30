@@ -79,8 +79,22 @@ const notifySuccess = () => toast.success("Marked as prefered",{
     theme: "light",
 }); 
 
+const notifyempty = () => toast.error("question body ise empty",{
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+});
+
   const inputHandler = async(input,clear)=>{
     console.log(answers.question.questions_id);
+
+    if(input === '')return notifyempty()
+
     axios.post('http://localhost:4040/addanswer',{
       question_id: answers.question.questions_id,
       answer: input

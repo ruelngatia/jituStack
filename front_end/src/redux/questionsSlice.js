@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 
+
 const initialState = {
         questions:[],
         loading: true,
@@ -13,7 +14,7 @@ const config = {
       Authorization: "Bearer ".concat(localStorage.getItem('token'))
     }
   }
-
+ 
 
 export const getAllQuestions = createAsyncThunk(
     'getAllQuestions',
