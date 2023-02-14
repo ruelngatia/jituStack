@@ -1,4 +1,5 @@
-import { Route, Routes , useLocation} from 'react-router-dom';
+import { Route, Routes, useNavigate , useLocation} from 'react-router-dom';
+import { useEffect } from 'react';
 import './App.css';
 import LeftTab from './Layout/LeftTab/LeftTab';
 import Nav from './Layout/Nav/Nav' 
@@ -15,9 +16,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   const currentLocation = useLocation()
+  const navigator = useNavigate();
   
-  console.log('from home: ' + currentLocation.pathname);
-
+  useEffect(()=>{
+      if(localStorage.getItem('token') == undefined){
+        navigator('/auth/login')
+      }
+    },[])
+ 
   return (
     <div className="App">
 
@@ -34,7 +40,8 @@ function App() {
           <Routes>
             <Route path='/:question' element={<Home/>}/>
             <Route path='/' element={<Home/>}/>
-            <Route path='/login' element={<Login/>}/>
+            {/*Some changes */}
+            <Route path='/auth/login' element={<Login/>}/>
             <Route path='/answers/:id' element={<Answers/>}/>
             <Route path='/askquestion' element={<AskQuestion/>}/>
             <Route path='/signup' element={<SignUp/>}/>

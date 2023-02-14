@@ -70,7 +70,8 @@ export default function LoginForm() {
             <div>
                 <label>User name</label>
                 <br/>
-                <input  
+                <input
+                    id='username'  
                     type={'text'}
                     value={username} 
                     onChange={(e)=>{setUsername(e.target.value)}}
@@ -81,7 +82,8 @@ export default function LoginForm() {
             <div>
                 <label>Password</label>
                 <br/>
-                <input 
+                <input
+                    id='password'  
                     type={'password'}
                     value={password}
                     onChange={(e)=>{setPassword(e.target.value)}}

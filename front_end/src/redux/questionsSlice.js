@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -22,15 +23,18 @@ export const getAllQuestions = createAsyncThunk(
         console.log(path);
         try {
             let result = await (await axios.get(`http://localhost:4040${path}`,config)).data 
+            thunkAPI.dispatch(setLoading())
             return result
         } catch (error) {
             thunkAPI.dispatch(setError())
+            console.log('touched');
             thunkAPI.dispatch(setLoading())
+            const navigator = useNavigate()
+            if(error.request.status == 401){  
+                navigator("/auth/login")
+            }
             console.log(error);
-        }
-        
-       
-        
+        }   
     }
 )
 
